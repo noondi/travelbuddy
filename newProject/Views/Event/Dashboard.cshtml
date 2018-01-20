@@ -1,0 +1,53 @@
+@Html.Partial("NavBar")
+<h2>Welcome to the Trip Planner.</h2>
+<h4>Your trip schedules.</h4>
+
+<!-- This table needs to only show the data for the logged-in user -->
+<!-- if user equals logged-in user then show his data -->
+<table class="table table-striped">
+    <tr>     
+        <th>Destination</th>
+        <th>Travel Start Date</th>
+        <th>Travel End Date</th>
+        <th>Plan</th>  
+    </tr>
+    @foreach (var t in ViewBag.AllUserPlans) 
+    {  
+            <tr>       
+                <td><a href="show/@t.TripId">@t.Trip.Destination</a></td>
+                <td> @t.Trip.TravelStartDate</td>        
+                <td>@t.Trip.TravelEndDate</td>         
+                <td>@t.Trip.Description</td>        
+            </tr>
+    }    
+</table>
+<br><br>
+<br><br>
+
+<!-- This one needs to exclude the logged-in user data showing the others -->
+<h4> Other people's trip plans.</h4>
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Destination</th>
+        <th>Travel Start Date</th>
+        <th>Travel End Date</th>
+        <th>Do you want to join?</th>
+    </tr>
+    @foreach (var t in ViewBag.trips) 
+    {   
+        <tr>  
+            <td>@t.User.FirstName @t.User.LastName</td>      
+            <td><a href="show/@t.TripId">@t.Destination</a></td>
+            <td> @t.TravelStartDate</td>        
+            <td>@t.TravelEndDate</td>         
+            <td>               
+            <a href="join/@t.TripId">Join a Trip</a>                         
+            </td>        
+        </tr> 
+    }
+</table>
+<br><br>
+<!-- this routes through the "add" -->
+<!-- <a href="add" class="btn btn-primary pull-right">Add a trip</a> -->
+<a href="add" class="btn btn-success pull-right">Add a trip</a>

@@ -1,0 +1,37 @@
+@Html.Partial("NavBar")
+@model newProject.Models.TripViewModel
+
+<h1>Plan Your Trip</h1>
+<form asp-action="CreateTrip" method="post">
+    <div class="form-group row">
+        <label asp-for="Destination" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-6">
+            <input asp-for="Destination" class="form-control">
+        </div>
+        <div class="col-sm-3"><span class="rederror" asp-validation-for="Destination"></span></div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Description" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-6">
+            <input asp-for="Description" class="form-control">
+        </div>
+        <div class="col-sm-3"><span class="rederror" asp-validation-for="Description"></span></div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="TravelStartDate" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-6">
+            <input asp-for="TravelStartDate" class="form-control">
+        </div>
+        <div class="col-sm-3"><span class="rederror" asp-validation-for="TravelStartDate"></span></div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="TravelEndDate" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-6">
+            <input asp-for="TravelEndDate" class="form-control">
+        </div>
+        <div class="col-sm-3"><span class="rederror" asp-validation-for="TravelEndDate"></span></div>
+    </div>  
+
+     
+    <input type="submit" value="Create Trip" class="btn btn-success">
+</form>

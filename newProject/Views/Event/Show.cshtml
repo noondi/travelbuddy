@@ -1,0 +1,11 @@
+@Html.Partial("NavBar")
+<h1>@ViewBag.trip.Destination</h1>
+<!-- User names not working -->
+<h4>Planned By: @ViewBag.trip.User.FirstName @ViewBag.trip.User.LastName</h4>
+<h4>Description: @ViewBag.trip.Description</h4>
+<h4>Travel Start Date: @ViewBag.trip.TravelStartDate.ToString("MMMM d, yyyy")</h4>
+<h4>Travel End Date: @ViewBag.trip.TravelEndDate.ToString("MMMM d, yyyy")</h4>
+<br><br>
+<h1>Other users' joining the trip:</h1>
+@ViewBag.attending
+
